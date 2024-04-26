@@ -3,34 +3,50 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Testar_saker_igen.MainPage">
 
-    <Grid BackgroundColor="#F5F5F5" Padding="25 0">
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-
-        <!-- #3E136C-->
-        
-        <StackLayout Grid.Row="1"  WidthRequest="50" HeightRequest="1000000" MinimumHeightRequest="10" Orientation="Vertical" >
-            <Label 
+    <StackLayout WidthRequest="50" VerticalOptions="FillAndExpand" MinimumHeightRequest="50" Orientation="Vertical" BackgroundColor="HotPink">
+        <Label 
                 FontSize="Large"
-                TextColor="#000" 
+                TextColor="{x:StaticResource TextColor}" 
                 Padding="20" 
                 BackgroundColor="#FFC2D2" 
                 FontAttributes="Bold"
                 >Tid
-            </Label>
+        </Label>
 
-            <!-- Denna stackLayout ska vara där alla tider är, alltså 0:00 till 23:00, men den ska även gå att scrolla-->
-            <StackLayout Orientation="Vertical">
+
+        <!--Där själva schemat med olika tider ska vara   -->
+        <ScrollView VerticalOptions="FillAndExpand">
+            <StackLayout>
                 
             </StackLayout>
-            
-        </StackLayout>
+        </ScrollView>
+
+        <!--Hitta var klassen sätts i App.xaml, där finns alla resources som används av flera sidor-->
+        <FlexLayout JustifyContent="SpaceBetween" Padding="10" BackgroundColor="{x:StaticResource WindowBackground}">
+            <Button Style="{x:StaticResource PageButton}"></Button>
+            <Button Style="{x:StaticResource PageButton}"></Button>
+            <Button Style="{x:StaticResource PageButton}"></Button>
+        </FlexLayout>
+        
+        
+        
+
+    </StackLayout>
 
 
-    </Grid>
+    <!-- Ifall man vill använda CSS eller liknande med klasser, dock går det ej i Hot Reload, 
+    vilket gör det mycket jobbigare att använda, eftersom det tar lång tid att starta om utan Hot Reload
     
+    <ContentPage.Resources>
+        <Style Class="PageButton" TargetType="Button">
+            <Setter Property="BackgroundColor"
+                    Value="#1FAECE" />
+            <Setter Property="HorizontalOptions"
+                    Value="Start" />
+            <Setter Property="CornerRadius"
+                    Value="10" />
+        </Style>
+    </ContentPage.Resources>
+    -->
 
 </ContentPage>
