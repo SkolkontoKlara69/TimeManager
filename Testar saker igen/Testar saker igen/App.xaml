@@ -1,18 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="Testar_saker_igen.App">
     <Application.Resources>
     
         <Color x:Key="MainPink">#FFC2D2</Color>
         <Color x:Key="WindowBackground">#F5F5F5</Color>
         <Color x:Key="TextColor">#291A29</Color>
+        <Color x:Key="ShadowColor">#291A29</Color>
         
         <Style x:Key="PageButton" TargetType="Button">
             <Setter Property="BackgroundColor" Value="{StaticResource MainPink}" />
             <Setter Property="CornerRadius" Value="10" />
             <Setter Property="BorderColor" Value="{StaticResource TextColor}"/>
-            <Setter Property="BorderWidth" Value="1" />
+            <Setter Property="xct:ShadowEffect.Color" Value="{StaticResource ShadowColor}"/>
         </Style>
         
     </Application.Resources>
