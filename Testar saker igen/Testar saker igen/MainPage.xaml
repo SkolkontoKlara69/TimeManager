@@ -23,9 +23,18 @@
 
         <!--Hitta var klassen sätts i App.xaml, där finns alla resources som används av flera sidor-->
         <FlexLayout JustifyContent="SpaceBetween" Padding="10" BackgroundColor="{x:StaticResource WindowBackground}">
-            <Button Style="{x:StaticResource PageButton}"></Button>
-            <Button Style="{x:StaticResource PageButton}"></Button>
-            <Button Style="{x:StaticResource PageButton}"></Button>
+            <Frame Style="{x:StaticResource PageButtonShadow}">
+                <Button Style="{x:StaticResource PageButton}"></Button>
+            </Frame>
+            
+            <Frame Style="{x:StaticResource PageButtonShadow}">
+                <Button Style="{x:StaticResource PageButton}"></Button>
+            </Frame>
+            
+            <Frame Style="{x:StaticResource PageButtonShadow}">
+                <Button Style="{x:StaticResource PageButton}"></Button>
+            </Frame>
+            
         </FlexLayout>
         
         

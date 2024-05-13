@@ -7,12 +7,19 @@
         <Color x:Key="MainPink">#FFC2D2</Color>
         <Color x:Key="WindowBackground">#F5F5F5</Color>
         <Color x:Key="TextColor">#291A29</Color>
+        <Color x:Key="ShadowColor">#291A29</Color>
         
         <Style x:Key="PageButton" TargetType="Button">
             <Setter Property="BackgroundColor" Value="{StaticResource MainPink}" />
             <Setter Property="CornerRadius" Value="10" />
             <Setter Property="BorderColor" Value="{StaticResource TextColor}"/>
-            <Setter Property="BorderWidth" Value="1" />
+        </Style>
+
+        <Style x:Key="PageButtonShadow" TargetType="Frame">
+            <Setter Property="BackgroundColor" Value="{StaticResource ShadowColor}" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="Opacity" Value="0.6" />
+            <Setter Property="Padding" Value="1, 0, 0, 2" />
         </Style>
         
     </Application.Resources>
