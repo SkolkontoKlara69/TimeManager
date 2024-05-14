@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="Testar_saker_igen.MainPage">
 
     <StackLayout WidthRequest="50" VerticalOptions="FillAndExpand" MinimumHeightRequest="50" Orientation="Vertical" BackgroundColor="{x:StaticResource WindowBackground}">
@@ -20,58 +20,56 @@
 
         <!--Där själva schemat med olika tider ska vara   -->
         <ScrollView VerticalOptions="FillAndExpand">
-            <StackLayout>
+            <StackLayout
+                Spacing="0"
+                >
                 <Label Style="{x:StaticResource HourLabel}"
                     Text="00:00"/>
-
-                <Label Style="{x:StaticResource HourLabel}"
+                <Label Style="{x:StaticResource AlternativeHourLabelColor}"
                     Text="01:00" />
-                
-                <Label Style="{x:StaticResource HourLabel}"
+                <Label Style="{x:StaticResource HourLabel}" 
                     Text="02:00" />
-                
-                <Label Style="{x:StaticResource HourLabel}"
+                <Label Style="{x:StaticResource AlternativeHourLabelColor}"
                     Text="03:00" />
-                <Label Style="{x:StaticResource HourLabel}"
+                <Label Style="{x:StaticResource HourLabel}" 
                     Text="04:00" />
-                <Label Style="{x:StaticResource HourLabel}"
+                <Label Style="{x:StaticResource AlternativeHourLabelColor}"
                     Text="05:00" />
-                <Label Style="{x:StaticResource HourLabel}"
+                <Label Style="{x:StaticResource HourLabel}" 
                     Text="06:00" />
-                <Label Style="{x:StaticResource HourLabel}"
+                <Label Style="{x:StaticResource AlternativeHourLabelColor}"
                     Text="07:00" />
-
                 <Label Style="{x:StaticResource HourLabel}"
                     Text="08:00" />
-                <Label Style="{x:StaticResource HourLabel}"
+                <Label Style="{x:StaticResource AlternativeHourLabelColor}"
                     Text="09:00" />
                 <Label Style="{x:StaticResource HourLabel}"
                     Text="10:00" />
-                <Label Style="{x:StaticResource HourLabel}"
+                <Label Style="{x:StaticResource AlternativeHourLabelColor}"
                     Text="11:00" />
                 <Label Style="{x:StaticResource HourLabel}"
                     Text="12:00" />
-                <Label Style="{x:StaticResource HourLabel}"
+                <Label Style="{x:StaticResource AlternativeHourLabelColor}"
                     Text="13:00" />
                 <Label Style="{x:StaticResource HourLabel}"
                     Text="14:00" />
-                <Label Style="{x:StaticResource HourLabel}"
+                <Label Style="{x:StaticResource AlternativeHourLabelColor}"
                     Text="15:00" />
                 <Label Style="{x:StaticResource HourLabel}"
                     Text="16:00" />
-                <Label Style="{x:StaticResource HourLabel}"
+                <Label Style="{x:StaticResource AlternativeHourLabelColor}"
                     Text="17:00" />
                 <Label Style="{x:StaticResource HourLabel}"
                     Text="18:00" />
-                <Label Style="{x:StaticResource HourLabel}"
+                <Label Style="{x:StaticResource AlternativeHourLabelColor}"
                     Text="19:00" />
                 <Label Style="{x:StaticResource HourLabel}"
                     Text="20:00" />
-                <Label Style="{x:StaticResource HourLabel}"
+                <Label Style="{x:StaticResource AlternativeHourLabelColor}"
                     Text="21:00" />
                 <Label Style="{x:StaticResource HourLabel}"
                     Text="22:00" />
-                <Label Style="{x:StaticResource HourLabel}"
+                <Label Style="{x:StaticResource AlternativeHourLabelColor}"
                     Text="23:00" />
             </StackLayout>
         </ScrollView>
