@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Testar_saker_igen.App">
     <Application.Resources>
-    
+
         <Color x:Key="MainPink">#FFC2D2</Color>
+        <Color x:Key="LightPink"> #FCE3F0</Color>
         <Color x:Key="WindowBackground">#F5F5F5</Color>
         <Color x:Key="TextColor">#291A29</Color>
         <Color x:Key="ShadowColor">#291A29</Color>
@@ -13,13 +14,22 @@
             <Setter Property="BackgroundColor" Value="{StaticResource MainPink}" />
             <Setter Property="CornerRadius" Value="10" />
             <Setter Property="BorderColor" Value="{StaticResource TextColor}"/>
+            <Setter Property="Opacity" Value="1" />
         </Style>
 
         <Style x:Key="PageButtonShadow" TargetType="Frame">
             <Setter Property="BackgroundColor" Value="{StaticResource ShadowColor}" />
             <Setter Property="CornerRadius" Value="10" />
-            <Setter Property="Opacity" Value="0.6" />
+            <!-- <Setter Property="Opacity" Value="0.6" /> -->
             <Setter Property="Padding" Value="1, 0, 0, 2" />
+        </Style>
+
+        <Style x:Key="HourLabel" TargetType="Label">
+            <Setter Property="FontSize" Value="Body" />
+            <Setter Property="TextColor" Value="{x:StaticResource TextColor}" />
+            <Setter Property="BackgroundColor" Value="{x:StaticResource LightPink}" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="Padding" Value="10,20,10,50" />
         </Style>
         
     </Application.Resources>
