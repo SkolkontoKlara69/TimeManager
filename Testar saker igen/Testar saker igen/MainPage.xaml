@@ -75,6 +75,8 @@
         </ScrollView>
 
         <!--Hitta var klassen sätts i App.xaml, där finns alla resources som används av flera sidor-->
+        <Frame BackgroundColor="DarkMagenta" Padding="5" />
+
         <FlexLayout JustifyContent="SpaceBetween" Padding="10" BackgroundColor="{x:StaticResource WindowBackground}">
             <Frame Style="{x:StaticResource PageButtonShadow}">
                 <Button Style="{x:StaticResource PageButton}"></Button>
