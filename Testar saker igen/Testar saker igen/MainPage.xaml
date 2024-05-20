@@ -20,58 +20,72 @@
 
         <!--Där själva schemat med olika tider ska vara   -->
         <ScrollView VerticalOptions="FillAndExpand">
-            <StackLayout
-                Spacing="0"
-                >
-                <Label Style="{x:StaticResource HourLabel}"
-                    Text="00:00"/>
-                <Label Style="{x:StaticResource AlternativeHourLabelColor}"
-                    Text="01:00" />
-                <Label Style="{x:StaticResource HourLabel}" 
-                    Text="02:00" />
-                <Label Style="{x:StaticResource AlternativeHourLabelColor}"
-                    Text="03:00" />
-                <Label Style="{x:StaticResource HourLabel}" 
-                    Text="04:00" />
-                <Label Style="{x:StaticResource AlternativeHourLabelColor}"
-                    Text="05:00" />
-                <Label Style="{x:StaticResource HourLabel}" 
-                    Text="06:00" />
-                <Label Style="{x:StaticResource AlternativeHourLabelColor}"
-                    Text="07:00" />
-                <Label Style="{x:StaticResource HourLabel}"
-                    Text="08:00" />
-                <Label Style="{x:StaticResource AlternativeHourLabelColor}"
-                    Text="09:00" />
-                <Label Style="{x:StaticResource HourLabel}"
-                    Text="10:00" />
-                <Label Style="{x:StaticResource AlternativeHourLabelColor}"
-                    Text="11:00" />
-                <Label Style="{x:StaticResource HourLabel}"
-                    Text="12:00" />
-                <Label Style="{x:StaticResource AlternativeHourLabelColor}"
-                    Text="13:00" />
-                <Label Style="{x:StaticResource HourLabel}"
-                    Text="14:00" />
-                <Label Style="{x:StaticResource AlternativeHourLabelColor}"
-                    Text="15:00" />
-                <Label Style="{x:StaticResource HourLabel}"
-                    Text="16:00" />
-                <Label Style="{x:StaticResource AlternativeHourLabelColor}"
-                    Text="17:00" />
-                <Label Style="{x:StaticResource HourLabel}"
-                    Text="18:00" />
-                <Label Style="{x:StaticResource AlternativeHourLabelColor}"
-                    Text="19:00" />
-                <Label Style="{x:StaticResource HourLabel}"
-                    Text="20:00" />
-                <Label Style="{x:StaticResource AlternativeHourLabelColor}"
-                    Text="21:00" />
-                <Label Style="{x:StaticResource HourLabel}"
-                    Text="22:00" />
-                <Label Style="{x:StaticResource AlternativeHourLabelColor}"
-                    Text="23:00" />
-            </StackLayout>
+            <AbsoluteLayout>
+            
+                <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
+                Spacing="0" 
+                    >
+                    <Label Style="{x:StaticResource HourLabel}"
+                        Text="00:00"/>
+                    <Label Style="{x:StaticResource AlternativeHourLabelColor}"
+                        Text="01:00" />
+                    <Label Style="{x:StaticResource HourLabel}" 
+                        Text="02:00" />
+                    <Label Style="{x:StaticResource AlternativeHourLabelColor}"
+                        Text="03:00" />
+                    <Label Style="{x:StaticResource HourLabel}" 
+                        Text="04:00" />
+                    <Label Style="{x:StaticResource AlternativeHourLabelColor}"
+                        Text="05:00" />
+                    <Label Style="{x:StaticResource HourLabel}" 
+                        Text="06:00" />
+                    <Label Style="{x:StaticResource AlternativeHourLabelColor}"
+                        Text="07:00" />
+                    <Label Style="{x:StaticResource HourLabel}"
+                        Text="08:00" />
+                    <Label Style="{x:StaticResource AlternativeHourLabelColor}"
+                        Text="09:00" />
+                    <Label Style="{x:StaticResource HourLabel}"
+                        Text="10:00" />
+                    <Label Style="{x:StaticResource AlternativeHourLabelColor}"
+                        Text="11:00" />
+                    <Label Style="{x:StaticResource HourLabel}"
+                        Text="12:00" />
+                    <Label Style="{x:StaticResource AlternativeHourLabelColor}"
+                        Text="13:00" />
+                    <Label Style="{x:StaticResource HourLabel}"
+                        Text="14:00" />
+                    <Label Style="{x:StaticResource AlternativeHourLabelColor}"
+                        Text="15:00" />
+                    <Label Style="{x:StaticResource HourLabel}"
+                        Text="16:00" />
+                    <Label Style="{x:StaticResource AlternativeHourLabelColor}"
+                        Text="17:00" />
+                    <Label Style="{x:StaticResource HourLabel}"
+                        Text="18:00" />
+                    <Label Style="{x:StaticResource AlternativeHourLabelColor}"
+                        Text="19:00" />
+                    <Label Style="{x:StaticResource HourLabel}"
+                        Text="20:00" />
+                    <Label Style="{x:StaticResource AlternativeHourLabelColor}"
+                        Text="21:00" />
+                    <Label Style="{x:StaticResource HourLabel}"
+                        Text="22:00" />
+                    <Label Style="{x:StaticResource AlternativeHourLabelColor}"
+                        Text="23:00" />
+                </StackLayout>
+                
+                <Frame BackgroundColor="Green"
+                     AbsoluteLayout.LayoutBounds="0.6, 0.131, 0.7,0.04" AbsoluteLayout.LayoutFlags="All" 
+                         CornerRadius="10"/>
+                <BoxView Color="Blue"
+                     AbsoluteLayout.LayoutBounds="0.1, 0.0416" AbsoluteLayout.LayoutFlags="PositionProportional" />
+                <BoxView Color="Red"
+                     AbsoluteLayout.LayoutBounds="0.1, 0"  AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                <BoxView Color="Yellow"
+                     AbsoluteLayout.LayoutBounds="0.15, 0" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+            </AbsoluteLayout>
+           
         </ScrollView>
 
         <!--Hitta var klassen sätts i App.xaml, där finns alla resources som används av flera sidor-->
