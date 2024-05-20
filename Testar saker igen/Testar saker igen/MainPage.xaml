@@ -20,7 +20,7 @@
 
         <!--Där själva schemat med olika tider ska vara   -->
         <ScrollView VerticalOptions="FillAndExpand">
-            <AbsoluteLayout>
+            <AbsoluteLayout x:Name="AbsoluteLayoutScroll">
             
                 <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
                 Spacing="0" 
