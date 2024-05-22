@@ -21,7 +21,7 @@
         <!--Där själva schemat med olika tider ska vara   -->
         <ScrollView VerticalOptions="FillAndExpand">
             <AbsoluteLayout x:Name="AbsoluteLayoutScroll">
-            
+
                 <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
                 Spacing="0" 
                     >
@@ -74,16 +74,6 @@
                     <Label Style="{x:StaticResource AlternativeHourLabelColor}"
                         Text="23:00" />
                 </StackLayout>
-                
-                <Frame BackgroundColor="Green"
-                     AbsoluteLayout.LayoutBounds="0.6, 0.131, 0.7,0.04" AbsoluteLayout.LayoutFlags="All" 
-                         CornerRadius="10"/>
-                <BoxView Color="Blue"
-                     AbsoluteLayout.LayoutBounds="0.1, 0.0416" AbsoluteLayout.LayoutFlags="PositionProportional" />
-                <BoxView Color="Red"
-                     AbsoluteLayout.LayoutBounds="0.1, 0"  AbsoluteLayout.LayoutFlags="PositionProportional"/>
-                <BoxView Color="Yellow"
-                     AbsoluteLayout.LayoutBounds="0.15, 0" AbsoluteLayout.LayoutFlags="PositionProportional"/>
             </AbsoluteLayout>
            
         </ScrollView>
@@ -93,15 +83,18 @@
 
         <FlexLayout JustifyContent="SpaceBetween" Padding="10" BackgroundColor="{x:StaticResource WindowBackground}">
             <Frame Style="{x:StaticResource PageButtonShadow}">
-                <Button Style="{x:StaticResource PageButton}"></Button>
+                <Button Style="{x:StaticResource PageButton}" 
+                        Text= "Settings"/>
             </Frame>
             
             <Frame Style="{x:StaticResource PageButtonShadow}">
-                <Button Style="{x:StaticResource PageButton}"></Button>
+                <Button Style="{x:StaticResource PageButton}"
+                        Text="Add Task"></Button>
             </Frame>
             
             <Frame Style="{x:StaticResource PageButtonShadow}">
-                <Button Style="{x:StaticResource PageButton}"></Button>
+                <Button Style="{x:StaticResource PageButton}"
+                        Text="Prefabs"></Button>
             </Frame>
             
         </FlexLayout>

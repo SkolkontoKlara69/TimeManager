@@ -8,14 +8,23 @@ using Xamarin.Forms;
 
 namespace Testar_saker_igen
 {
-    public partial class MainPage : ContentPage
+    public partial class MainPage : ContentPage 
     {
         public MainPage()
         {
             InitializeComponent();
 
-            AddFrameToAbsoluteLayout("Ta studenten", 120, new TimeSpan(12,0,0), Color.HotPink);
+            AddFrameToAbsoluteLayout("Ta studenten", 300, new TimeSpan(0, 0, 0), Color.HotPink);
+
+            AddFrameToAbsoluteLayout("Gå hem", 60, new TimeSpan(10, 0, 0), Color.Green);
+        /*
+            for (int i = 0; i < 24; i++)
+            {
+                AddFrameToAbsoluteLayout("Gå hem", 10, new TimeSpan(i, 0, 0), Color.FromRgb(10*i,10*i,10*i));
+            }
+        */
         }
+    
         private void AddFrameToAbsoluteLayout(string taskNameString, double taskTimeLength,TimeSpan taskStartTime, Color color)
         {
             
@@ -30,7 +39,7 @@ namespace Testar_saker_igen
             {
                 Direction = FlexDirection.Row,
                 JustifyContent = FlexJustify.SpaceBetween,
-                Margin = -10,
+                Margin = new Thickness(-10),
             };
 
             var taskName = new Label
@@ -60,15 +69,25 @@ namespace Testar_saker_igen
 
 
             // Placerar den i AbsoluteLayout med samma LayoutBounds och LayoutFlags som i XAML
-            double frameHeight = taskTimeLength / (60 * 24);
-            double frameYPosition = taskStartTime.Hours / 24; //+ taskStartTime.Minutes/(24*60);
-            AbsoluteLayout.SetLayoutBounds(newFrame, new Rectangle(0.6, frameYPosition, 0.7, frameHeight));
+            double frameHeight = taskTimeLength / (60.00 * 24.00);
+            double frameYPosition = (taskStartTime.TotalMinutes / (24.0 * 60.0));// + frameHeight/2; //(taskStartTime.Hours) / 24.00 + taskStartTime.Minutes/(24.00*60.00) + frameHeight;
             AbsoluteLayout.SetLayoutFlags(newFrame, AbsoluteLayoutFlags.All);
+            AbsoluteLayout.SetLayoutBounds(newFrame, new Rectangle(0.6, frameYPosition, 0.7, frameHeight));
 
             // Hittar AbsoluteLayout
             var absoluteLayout = this.FindByName<AbsoluteLayout>("AbsoluteLayoutScroll");
 
+        if (absoluteLayout == null)
+        {
+            DisplayAlert("Fel", "Hittade inte AbsoluteLayoutScroll", "OK");
+        }
+        else
+        {
             absoluteLayout.Children.Add(newFrame);
+        }
+
+
+        absoluteLayout.Children.Add(newFrame);
         }
     }
 }
