@@ -5,10 +5,22 @@
     <ContentPage.Content>
         <StackLayout 
             BackgroundColor="{x:StaticResource WindowBackground}"
-            Padding="30"
+            Padding="40"
             >
-            <Entry Placeholder="Name of the task"/>
-            <Entry Placeholder="Length of your task (in minutes)" Keyboard="Numeric" />
+            <Label Text="Create a new task:"/>
+            <Entry x:Name="taskNameEntry" Placeholder="Name of the task"/>
+            <Entry x:Name="taskLengthEntry" Placeholder="Length of your task (in minutes)" Keyboard="Numeric" />
+            <TimePicker x:Name="taskStartTimePicker"/>
+            <Entry x:Name="ColorEntry" Placeholder="Skriv in en hexadecimal kod för din färg"/>
+            <Button x:Name="AddTaskButton" 
+                    Clicked="AddTaskButton_Clicked" 
+                    Text="Add the task" 
+                    TextTransform="Default"
+                    BackgroundColor="{x:StaticResource MainPink}"
+                    CornerRadius="10"
+                    TextColor="{x:StaticResource TextColor}"
+                    />
+            
             <!-- <Picker 
                    SelectedItem="{Binding SelectedItem}"
                    ItemsSource="{Binding Colors}"/>

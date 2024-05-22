@@ -16,5 +16,15 @@ namespace Testar_saker_igen
         {
             InitializeComponent();
         }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddTaskButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
