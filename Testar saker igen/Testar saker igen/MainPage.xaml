@@ -84,17 +84,25 @@
         <FlexLayout JustifyContent="SpaceBetween" Padding="10" BackgroundColor="{x:StaticResource WindowBackground}">
             <Frame Style="{x:StaticResource PageButtonShadow}">
                 <Button Style="{x:StaticResource PageButton}" 
-                        Text= "Settings"/>
+                        Text= "Settings"
+                        x:Name="SettingsButton"
+                        Clicked="SettingsButton_Clicked"
+                        />
             </Frame>
             
             <Frame Style="{x:StaticResource PageButtonShadow}">
                 <Button Style="{x:StaticResource PageButton}"
-                        Text="Add Task"></Button>
+                    Text="Add Task"
+                    x:Name="TaskButton"
+                    Clicked="TaskButton_Clicked"/>
             </Frame>
             
             <Frame Style="{x:StaticResource PageButtonShadow}">
                 <Button Style="{x:StaticResource PageButton}"
-                        Text="Prefabs"></Button>
+                        Text="Prefabs"
+                        x:Name="PrefabButton"
+                        Clicked="PrefabButton_Clicked"
+                        ></Button>
             </Frame>
             
         </FlexLayout>

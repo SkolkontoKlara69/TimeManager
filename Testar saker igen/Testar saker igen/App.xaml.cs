@@ -10,7 +10,11 @@ namespace Testar_saker_igen
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MainPage());
+
+            Routing.RegisterRoute(nameof(AddTaskPage), typeof(AddTaskPage));
+            Routing.RegisterRoute(nameof(SettingsPage), typeof(SettingsPage));
+            Routing.RegisterRoute(nameof(PrefabsPage), typeof(PrefabsPage));
         }
 
         protected override void OnStart()

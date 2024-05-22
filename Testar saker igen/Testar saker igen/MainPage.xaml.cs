@@ -14,7 +14,7 @@ namespace Testar_saker_igen
         {
             InitializeComponent();
 
-            AddFrameToAbsoluteLayout("Ta studenten", 300, new TimeSpan(0, 0, 0), Color.HotPink);
+            AddFrameToAbsoluteLayout("Ta studenten", 300, new TimeSpan(2, 0, 0), Color.HotPink);
 
             AddFrameToAbsoluteLayout("Gå hem", 60, new TimeSpan(10, 0, 0), Color.Green);
         /*
@@ -24,7 +24,23 @@ namespace Testar_saker_igen
             }
         */
         }
-    
+
+        async void SettingsButton_Clicked(object sender, EventArgs eventArgs)
+        {
+            await Navigation.PushAsync(new SettingsPage());
+        }
+
+
+        async void TaskButton_Clicked(object sender, EventArgs eventArgs)
+        {
+            await Navigation.PushAsync(new AddTaskPage());
+        }
+
+        async void PrefabButton_Clicked(object sender, EventArgs eventArgs)
+        {
+            await Navigation.PushAsync(new PrefabsPage());
+        }
+
         private void AddFrameToAbsoluteLayout(string taskNameString, double taskTimeLength,TimeSpan taskStartTime, Color color)
         {
             
@@ -39,7 +55,7 @@ namespace Testar_saker_igen
             {
                 Direction = FlexDirection.Row,
                 JustifyContent = FlexJustify.SpaceBetween,
-                Margin = new Thickness(-10),
+                Margin = new Thickness(0),
             };
 
             var taskName = new Label
@@ -48,7 +64,8 @@ namespace Testar_saker_igen
                 TextColor = Color.White,
                 FontSize = 20,
                 VerticalOptions = LayoutOptions.Start,
-                HorizontalOptions = LayoutOptions.Start
+                HorizontalOptions = LayoutOptions.Start,
+                Padding = 0,
             };
 
             var taskLength = new Label
@@ -70,8 +87,17 @@ namespace Testar_saker_igen
 
             // Placerar den i AbsoluteLayout med samma LayoutBounds och LayoutFlags som i XAML
             double frameHeight = taskTimeLength / (60.00 * 24.00);
-            double frameYPosition = (taskStartTime.TotalMinutes / (24.0 * 60.0));// + frameHeight/2; //(taskStartTime.Hours) / 24.00 + taskStartTime.Minutes/(24.00*60.00) + frameHeight;
-            AbsoluteLayout.SetLayoutFlags(newFrame, AbsoluteLayoutFlags.All);
+            double frameYPosition = 0;
+
+            if (taskStartTime.TotalMinutes >= taskTimeLength)
+            {
+                frameYPosition = (taskStartTime.TotalMinutes / (24.0 * 60.0)) + frameHeight / 2; //(taskStartTime.Hours) / 24.00 + taskStartTime.Minutes/(24.00*60.00) + frameHeight;
+            }
+            else
+            {
+                frameYPosition = (taskStartTime.TotalMinutes / (24.0 * 60.0));
+            }
+                AbsoluteLayout.SetLayoutFlags(newFrame, AbsoluteLayoutFlags.All);
             AbsoluteLayout.SetLayoutBounds(newFrame, new Rectangle(0.6, frameYPosition, 0.7, frameHeight));
 
             // Hittar AbsoluteLayout
