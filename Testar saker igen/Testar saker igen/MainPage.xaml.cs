@@ -16,13 +16,15 @@ namespace Testar_saker_igen
 
             AddFrameToAbsoluteLayout("Ta studenten", 300, new TimeSpan(2, 0, 0), Color.HotPink);
 
-            AddFrameToAbsoluteLayout("Gå hem", 60, new TimeSpan(10, 0, 0), Color.Green);
-        /*
-            for (int i = 0; i < 24; i++)
-            {
-                AddFrameToAbsoluteLayout("Gå hem", 10, new TimeSpan(i, 0, 0), Color.FromRgb(10*i,10*i,10*i));
-            }
-        */
+            AddFrameToAbsoluteLayout("Gå hem", 60, new TimeSpan(12, 0, 0), Color.Green);
+
+            AddFrameToAbsoluteLayout("Gå hem", 5, new TimeSpan(12, 0, 0), Color.Blue);
+            /*
+                for (int i = 0; i < 24; i++)
+                {
+                    AddFrameToAbsoluteLayout("Gå hem", 10, new TimeSpan(i, 0, 0), Color.FromRgb(10*i,10*i,10*i));
+                }
+            */
         }
 
         async void SettingsButton_Clicked(object sender, EventArgs eventArgs)
@@ -48,7 +50,8 @@ namespace Testar_saker_igen
             {
                 BackgroundColor = color,
                 CornerRadius = 10,
-                HasShadow = true
+                HasShadow = true,
+                Margin = 0,
             };
         
             var flexLayout = new FlexLayout
@@ -89,6 +92,7 @@ namespace Testar_saker_igen
             double frameHeight = taskTimeLength / (60.00 * 24.00);
             double frameYPosition = 0;
 
+            /*
             if (taskStartTime.TotalMinutes >= taskTimeLength)
             {
                 frameYPosition = (taskStartTime.TotalMinutes / (24.0 * 60.0)) + frameHeight / 2; //(taskStartTime.Hours) / 24.00 + taskStartTime.Minutes/(24.00*60.00) + frameHeight;
@@ -96,8 +100,10 @@ namespace Testar_saker_igen
             else
             {
                 frameYPosition = (taskStartTime.TotalMinutes / (24.0 * 60.0));
-            }
-                AbsoluteLayout.SetLayoutFlags(newFrame, AbsoluteLayoutFlags.All);
+            }*/
+
+            frameYPosition = (12*60 + taskTimeLength/2.0)/(60.0*24.0);
+                AbsoluteLayout.SetLayoutFlags(newFrame, AbsoluteLayoutFlags.PositionProportional | AbsoluteLayoutFlags.SizeProportional);
             AbsoluteLayout.SetLayoutBounds(newFrame, new Rectangle(0.6, frameYPosition, 0.7, frameHeight));
 
             // Hittar AbsoluteLayout

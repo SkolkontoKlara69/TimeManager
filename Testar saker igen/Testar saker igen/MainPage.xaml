@@ -74,6 +74,7 @@
                     <Label Style="{x:StaticResource AlternativeHourLabelColor}"
                         Text="23:00" />
                 </StackLayout>
+                
             </AbsoluteLayout>
            
         </ScrollView>
