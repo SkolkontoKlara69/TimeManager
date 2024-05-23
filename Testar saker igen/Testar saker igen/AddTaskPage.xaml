@@ -1,18 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Testar_saker_igen.AddTaskPage">
+             x:Class="Testar_saker_igen.AddTaskPage"
+             NavigationPage.HasNavigationBar = "false">
     <ContentPage.Content>
         <StackLayout 
             BackgroundColor="{x:StaticResource WindowBackground}"
-            Padding="40"
             >
-            <Label Text="Create a new task:"/>
-            <Entry x:Name="taskNameEntry" Placeholder="Name of the task"/>
-            <Entry x:Name="taskLengthEntry" Placeholder="Length of your task (in minutes)" Keyboard="Numeric" />
-            <TimePicker x:Name="taskStartTimePicker"/>
-            <Entry x:Name="ColorEntry" Placeholder="Skriv in en hexadecimal kod för din färg"/>
-            <Button x:Name="AddTaskButton" 
+            <!--Header-->
+            <Frame Style="{x:StaticResource HeaderShadow}">
+                <Label Style="{x:StaticResource Header}"
+                >Create a new task
+                </Label>
+            </Frame>
+
+            <StackLayout Padding="40">
+                <Entry x:Name="taskNameEntry" 
+                   Placeholder="Name of the task"/>
+
+                <!--Här skriver man in task-lengthen och för att det ska vara siffror så skrivs det med siffer-tangentbordet-->
+                <Entry x:Name="taskLengthEntry" 
+                   Placeholder="Length of your task (in minutes)" 
+                   Keyboard="Numeric" />
+
+                <TimePicker x:Name="taskStartTimePicker"/>
+                <Entry x:Name="ColorEntry" Placeholder="Skriv in en hexadecimal kod för din färg"/>
+                <Button x:Name="AddTaskButton" 
                     Clicked="AddTaskButton_Clicked" 
                     Text="Add the task" 
                     TextTransform="Default"
@@ -20,11 +33,13 @@
                     CornerRadius="10"
                     TextColor="{x:StaticResource TextColor}"
                     />
-            
-            <!-- <Picker 
+
+                <!-- <Picker 
                    SelectedItem="{Binding SelectedItem}"
                    ItemsSource="{Binding Colors}"/>
              -->
+            </StackLayout>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

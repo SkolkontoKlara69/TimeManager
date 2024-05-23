@@ -1,27 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             x:Class="Testar_saker_igen.MainPage">
+             x:Class="Testar_saker_igen.MainPage"
+             NavigationPage.HasNavigationBar = "false">
 
     <StackLayout WidthRequest="50" VerticalOptions="FillAndExpand" MinimumHeightRequest="50" Orientation="Vertical" BackgroundColor="{x:StaticResource WindowBackground}">
-        <Frame Style="{x:StaticResource PageButtonShadow}">
-            <Label 
-                FontSize="Large"
-                TextColor="{x:StaticResource TextColor}" 
-                Padding="20" 
-                BackgroundColor="#FFC2D2" 
-                FontAttributes="Bold"
-                Opacity="1"
-                >Tid
+        
+        <!--Header-->
+        <Frame Style="{x:StaticResource HeaderShadow}">
+            <Label Style="{x:StaticResource Header}"
+                >Todays Schedule
             </Label>
         </Frame>
-       
-
 
         <!--Där själva schemat med olika tider ska vara   -->
         <ScrollView VerticalOptions="FillAndExpand">
             <AbsoluteLayout x:Name="AbsoluteLayoutScroll">
-
+                
                 <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
                 Spacing="0" 
                     >
@@ -74,6 +69,8 @@
                     <Label Style="{x:StaticResource AlternativeHourLabelColor}"
                         Text="23:00" />
                 </StackLayout>
+                
+                <!--Här läggs alla tasks som skapas via kod till-->
                 
             </AbsoluteLayout>
            

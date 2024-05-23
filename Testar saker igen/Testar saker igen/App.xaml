@@ -10,6 +10,26 @@
         <Color x:Key="WindowBackground">#F5F5F5</Color>
         <Color x:Key="TextColor">#291A29</Color>
         <Color x:Key="ShadowColor">#291A29</Color>
+
+        <!--
+        <Setter Property="" Value="" />
+        -->
+        
+        <Style x:Key="Header" TargetType="Label">
+            <Setter Property="FontSize" Value="Large" />
+            <Setter Property="TextColor" Value="{x:StaticResource TextColor}" />
+            <Setter Property="Padding" Value="20" />
+            <Setter Property="BackgroundColor" Value="{x:StaticResource MainPink}" />
+            <Setter Property="FontAttributes" Value="Bold" />
+        </Style>
+
+        <Style x:Key="HeaderShadow" TargetType="Frame">
+            <Setter Property="BackgroundColor" Value="{StaticResource ShadowColor}" />
+            <Setter Property="Padding" Value="1, 0, 0, 2" />
+        </Style>
+        
+        
+        
         
         <Style x:Key="PageButton" TargetType="Button">
             <Setter Property="BackgroundColor" Value="{StaticResource MainPink}" />

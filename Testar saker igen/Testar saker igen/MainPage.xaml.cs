@@ -14,19 +14,6 @@ namespace Testar_saker_igen
         {
             InitializeComponent();
 
-
-            AddFrameToAbsoluteLayout("Ta studenten", 300, new TimeSpan(1, 0, 0), Color.HotPink);
-
-            AddFrameToAbsoluteLayout("Gå hem", 60, new TimeSpan(12, 0, 0), Color.Green);
-
-            AddFrameToAbsoluteLayout("Gå hem", 5, new TimeSpan(12, 0, 0), Color.Blue);
-
-            /*
-                for (int i = 0; i < 24; i++)
-                {
-                    AddFrameToAbsoluteLayout("Gå hem", 10, new TimeSpan(i, 0, 0), Color.FromRgb(10*i,10*i,10*i));
-                }
-            */
         }
 
         async void SettingsButton_Clicked(object sender, EventArgs eventArgs)
@@ -46,10 +33,10 @@ namespace Testar_saker_igen
             await Navigation.PushAsync(new PrefabsPage());
         }
 
-        public void AddFrameToAbsoluteLayout(string taskNameString, double taskTimeLength, TimeSpan taskStartTime, Color color)
+        public void AddTaskToAbsoluteLayout(string taskNameString, double taskTimeLength, TimeSpan taskStartTime, Color color)
         {
 
-            var newFrame = new Frame
+            var taskFrame = new Frame
             {
                 BackgroundColor = color,
                 CornerRadius = 10,
@@ -84,33 +71,22 @@ namespace Testar_saker_igen
                 HorizontalOptions = LayoutOptions.End
             };
 
+            //Placerar båda labels i flex och sedan den flexlayouten i framen
             flexLayout.Children.Add(taskName);
             flexLayout.Children.Add(taskLength);
-
-            newFrame.Content = flexLayout;
-
+            taskFrame.Content = flexLayout;
 
 
-            // Placerar den i AbsoluteLayout med samma LayoutBounds och LayoutFlags som i XAML
+
+           //Här bestäms höjden som är proportionerlig till hela scrollviewn med timmar, därför görs tasktimelength om till timmar för att delas med 24 så att det är samma procentuella höjd som en timme i scrollviewn
             double frameHeight = taskTimeLength / (60.00 * 24.00);
-            double frameYPosition = 0;
 
-            /*
-            if (taskStartTime.TotalMinutes >= taskTimeLength)
-            {
-                frameYPosition = (taskStartTime.TotalMinutes / (24.0 * 60.0)) + frameHeight / 2; //(taskStartTime.Hours) / 24.00 + taskStartTime.Minutes/(24.00*60.00) + frameHeight;
-            }
-            else
-            {
-                frameYPosition = (taskStartTime.TotalMinutes / (24.0 * 60.0));
-            }*/
+            //Här bestäms den propertionerliga Ypositionen, där den först beräknar vilken timme som den ska placeras vid, men sedan hur mycket den ska offsettas (eftersom vid 0 ska den inte offsettas alls och vid 1 ska den offsettas med hela höjden. Vid 0.5 kommer den att vara centrerad och behöva offsettas med en halv frameheight.)
+            double frameYPosition = (taskStartTime.TotalMinutes / (24.0 * 60.0)) + (frameHeight * (taskStartTime.TotalMinutes / (24.0 * 60.0)));
 
-            //Det borde ha någonting att göra med att man ska multiplicera dem eller någonting liknande, eller att offsettet måste ändras.
-            //Det enklaste var om bara positionen var proportionerlig,
-            //så att vänstra övre hörnet fortfarande är där det ska vara och om det är en specifik height så blir det rätt?
-            frameYPosition = (taskStartTime.TotalMinutes / (24.0 * 60.0)) + (frameHeight * (taskStartTime.TotalMinutes / (24.0 * 60.0)));
-            AbsoluteLayout.SetLayoutFlags(newFrame, AbsoluteLayoutFlags.PositionProportional | AbsoluteLayoutFlags.SizeProportional);
-            AbsoluteLayout.SetLayoutBounds(newFrame, new Rectangle(0.6, frameYPosition, 0.7, frameHeight));
+            //Först definieras det att framen 
+            AbsoluteLayout.SetLayoutFlags(taskFrame, AbsoluteLayoutFlags.PositionProportional | AbsoluteLayoutFlags.SizeProportional);
+            AbsoluteLayout.SetLayoutBounds(taskFrame, new Rectangle(0.6, frameYPosition, 0.7, frameHeight));
 
             // Hittar AbsoluteLayout
             var absoluteLayout = this.FindByName<AbsoluteLayout>("AbsoluteLayoutScroll");
@@ -121,11 +97,11 @@ namespace Testar_saker_igen
             }
             else
             {
-                absoluteLayout.Children.Add(newFrame);
+                absoluteLayout.Children.Add(taskFrame);
             }
 
 
-            absoluteLayout.Children.Add(newFrame);
+            absoluteLayout.Children.Add(taskFrame);
         }
     }
 }

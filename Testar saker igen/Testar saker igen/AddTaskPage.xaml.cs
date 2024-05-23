@@ -29,7 +29,7 @@ namespace Testar_saker_igen
             Color color = Color.FromHex(ColorEntry.Text);
 
             // Anropa MainPage's AddFrameToAbsoluteLayout-metod
-            _mainPage.AddFrameToAbsoluteLayout(taskName, taskLength, taskStartTime, color);
+            _mainPage.AddTaskToAbsoluteLayout(taskName, taskLength, taskStartTime, color);
 
             // Gå tillbaka till MainPage
             Navigation.PopAsync();
