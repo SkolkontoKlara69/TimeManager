@@ -14,11 +14,13 @@ namespace Testar_saker_igen
         {
             InitializeComponent();
 
-            AddFrameToAbsoluteLayout("Ta studenten", 300, new TimeSpan(2, 0, 0), Color.HotPink);
+
+            AddFrameToAbsoluteLayout("Ta studenten", 300, new TimeSpan(1, 0, 0), Color.HotPink);
 
             AddFrameToAbsoluteLayout("Gå hem", 60, new TimeSpan(12, 0, 0), Color.Green);
 
             AddFrameToAbsoluteLayout("Gå hem", 5, new TimeSpan(12, 0, 0), Color.Blue);
+
             /*
                 for (int i = 0; i < 24; i++)
                 {
@@ -35,17 +37,18 @@ namespace Testar_saker_igen
 
         async void TaskButton_Clicked(object sender, EventArgs eventArgs)
         {
-            await Navigation.PushAsync(new AddTaskPage());
+            await Navigation.PushAsync(new AddTaskPage(this)); //Skickar med vilken mainpage som addtaskPage behöver
         }
+    
 
         async void PrefabButton_Clicked(object sender, EventArgs eventArgs)
         {
             await Navigation.PushAsync(new PrefabsPage());
         }
 
-        private void AddFrameToAbsoluteLayout(string taskNameString, double taskTimeLength,TimeSpan taskStartTime, Color color)
+        public void AddFrameToAbsoluteLayout(string taskNameString, double taskTimeLength, TimeSpan taskStartTime, Color color)
         {
-            
+
             var newFrame = new Frame
             {
                 BackgroundColor = color,
@@ -53,7 +56,7 @@ namespace Testar_saker_igen
                 HasShadow = true,
                 Margin = 0,
             };
-        
+
             var flexLayout = new FlexLayout
             {
                 Direction = FlexDirection.Row,
@@ -105,24 +108,24 @@ namespace Testar_saker_igen
             //Det borde ha någonting att göra med att man ska multiplicera dem eller någonting liknande, eller att offsettet måste ändras.
             //Det enklaste var om bara positionen var proportionerlig,
             //så att vänstra övre hörnet fortfarande är där det ska vara och om det är en specifik height så blir det rätt?
-            frameYPosition = (taskStartTime.TotalMinutes / (24.0 * 60.0)) + frameHeight / 2.0;
-                AbsoluteLayout.SetLayoutFlags(newFrame, AbsoluteLayoutFlags.PositionProportional | AbsoluteLayoutFlags.SizeProportional);
+            frameYPosition = (taskStartTime.TotalMinutes / (24.0 * 60.0)) + (frameHeight * (taskStartTime.TotalMinutes / (24.0 * 60.0)));
+            AbsoluteLayout.SetLayoutFlags(newFrame, AbsoluteLayoutFlags.PositionProportional | AbsoluteLayoutFlags.SizeProportional);
             AbsoluteLayout.SetLayoutBounds(newFrame, new Rectangle(0.6, frameYPosition, 0.7, frameHeight));
 
             // Hittar AbsoluteLayout
             var absoluteLayout = this.FindByName<AbsoluteLayout>("AbsoluteLayoutScroll");
 
-        if (absoluteLayout == null)
-        {
-            DisplayAlert("Fel", "Hittade inte AbsoluteLayoutScroll", "OK");
-        }
-        else
-        {
+            if (absoluteLayout == null)
+            {
+                DisplayAlert("Fel", "Hittade inte AbsoluteLayoutScroll", "OK");
+            }
+            else
+            {
+                absoluteLayout.Children.Add(newFrame);
+            }
+
+
             absoluteLayout.Children.Add(newFrame);
-        }
-
-
-        absoluteLayout.Children.Add(newFrame);
         }
     }
 }
