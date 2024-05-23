@@ -33,6 +33,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
+	<EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk> <!--Manuellt tillagd för att förenkla testning och förhindra fel-->
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,6 +44,7 @@
     <WarningLevel>4</WarningLevel>
     <AndroidManagedSymbols>true</AndroidManagedSymbols>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+	<EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk> <!--Manuellt tillagd för att förenkla testning och förhindra fel-->
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
