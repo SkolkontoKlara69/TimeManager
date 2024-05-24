@@ -14,6 +14,10 @@ namespace Testar_saker_igen
     public partial class PrefabsPage : ContentPage
     {
         private MainPage _mainPage;
+        private static string localTaskName;
+        private static double localTaskLength;
+        private static TimePicker localTimePicker;
+        private static Color localTaskColor;
 
         public PrefabsPage(MainPage mainPage)
         {
@@ -23,14 +27,22 @@ namespace Testar_saker_igen
 
         private void PrefabButton_Clicked(object sender, EventArgs e)
         {
-            var prefabEntry = new Entry
+            if (localTimePicker == null) {
+                DisplayAlert("TimePicker saknas", "LocalTimePicker kunde inte hittas", "Ok");
+            }
+            else
             {
+                _mainPage.AddTaskToAbsoluteLayout(localTaskName, localTaskLength, localTimePicker.Time, localTaskColor);
 
-            };
+                Navigation.PopAsync();
+            }
         }
 
         public void AddTaskToPrefabs(string taskNameString, double taskTimeLength, Color taskColor)
         {
+            localTaskColor = taskColor;
+            localTaskLength = taskTimeLength;
+            localTaskName = taskNameString;
 
             var stackLayout = new StackLayout
             {
@@ -46,15 +58,25 @@ namespace Testar_saker_igen
 
             stackLayout.Children.Add(taskNameLabel);
 
-            var flexLayout = new FlexLayout{
+            //En flexlayout kan inte ha cornerradius så därför skapar jag en frame som jag lägger flexlayouten i
+            var cornerRadiusFrame = new Frame
+            {
+                Padding = 0,
+                CornerRadius = 10,
+            };
+
+            stackLayout.Children.Add(cornerRadiusFrame);
+
+            var flexLayout = new FlexLayout
+            {
                 Direction = FlexDirection.Row,
                 JustifyContent = FlexJustify.SpaceBetween,
                 AlignItems = FlexAlignItems.Center,
                 BackgroundColor = taskColor,
-                Padding = 10,
+                Padding = 15,
             };
 
-            stackLayout.Children.Add(flexLayout);
+            cornerRadiusFrame.Content = flexLayout;
 
             var taskLengthLabel = new Label
             {
@@ -66,14 +88,18 @@ namespace Testar_saker_igen
             var timePicker = new TimePicker
             {
                 TextColor = Color.White,
-                //x:Name = startTimeEntry
             };
+
+            localTimePicker = timePicker;
 
             var button = new Button
             {
                 Text = "Add prefab",
                 BackgroundColor = Color.FromHex("#FCE3F0"),
+                CornerRadius = 10,
             };
+
+            button.Clicked += PrefabButton_Clicked;
 
             flexLayout.Children.Add(taskLengthLabel);
             flexLayout.Children.Add(timePicker);

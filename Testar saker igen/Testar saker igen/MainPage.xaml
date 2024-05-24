@@ -76,15 +76,14 @@
            
         </ScrollView>
 
-        <!--Hitta var klassen sätts i App.xaml, där finns alla resources som används av flera sidor-->
-        <Frame BackgroundColor="DarkMagenta" Padding="5" />
-
-        <FlexLayout JustifyContent="SpaceBetween" Padding="10" BackgroundColor="{x:StaticResource WindowBackground}">
+        <Frame BackgroundColor="#d185fa" Padding="2"/>
+        <FlexLayout JustifyContent="SpaceBetween" Padding="10" BackgroundColor="{x:StaticResource LightestPink}">
             <Frame Style="{x:StaticResource PageButtonShadow}">
                 <Button Style="{x:StaticResource PageButton}" 
                         Text= "Settings"
                         x:Name="SettingsButton"
                         Clicked="SettingsButton_Clicked"
+                        BackgroundColor="#75BAFF"
                         />
             </Frame>
             
@@ -100,6 +99,7 @@
                         Text="Prefabs"
                         x:Name="PrefabButton"
                         Clicked="PrefabButton_Clicked"
+                        BackgroundColor="#d185fa"
                         ></Button>
             </Frame>
             
