@@ -1,0 +1,1 @@
+"TimeManager"projektet är bara en template, eftersom jag skapade den för att sedan inse att det var bättre att börja om från noll. Därför skapade jag projektet "Testar saker igen" där hela projektet ligger och där appen kan användas. 
