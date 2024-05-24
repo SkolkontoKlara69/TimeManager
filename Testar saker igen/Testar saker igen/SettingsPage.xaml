@@ -5,9 +5,41 @@
              NavigationPage.HasNavigationBar = "false">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <!--Header-->
+            <Frame Style="{x:StaticResource HeaderShadow}">
+                <Label Style="{x:StaticResource Header}" 
+                    BackgroundColor="#75BAFF"
+                >Settings
+                </Label>
+            </Frame>
+
+            <StackLayout Padding="20">
+                <Label 
+                FontSize="Medium" FontAttributes="Bold" TextColor="{x:StaticResource TextColor}"
+                >Add your own prefab
+                </Label>
+
+                <Entry x:Name="taskNameEntry" 
+                   Placeholder="Name of the task"/>
+
+                <!--Här skriver man in task-lengthen och för att det ska vara siffror så skrivs det med siffer-tangentbordet-->
+                <Entry x:Name="taskLengthEntry" 
+                   Placeholder="Length of your task (in minutes)" 
+                   Keyboard="Numeric" />
+
+                <Entry x:Name="ColorEntry" Placeholder="Color in hexadecimals (ex. #FFC2D2)"/>
+
+                <Button x:Name="AddPrefabButton" Clicked="AddPrefabButton_Clicked"
+                    Text="Add the prefab" 
+                    TextTransform="Default"
+                    BackgroundColor="#75BAFF"
+                    CornerRadius="10"
+                    TextColor="{x:StaticResource TextColor}"
+                    />
+
+            </StackLayout>
+            
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

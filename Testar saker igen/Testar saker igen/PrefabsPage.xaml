@@ -4,10 +4,36 @@
              x:Class="Testar_saker_igen.PrefabsPage"
              NavigationPage.HasNavigationBar = "false">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout x:Name ="HeaderAndPrefabs" 
+                     BackgroundColor="{x:StaticResource WindowBackground}">
+            <!--Header-->
+            <Frame Style="{x:StaticResource HeaderShadow}">
+                <Label Style="{x:StaticResource Header}"
+                >Add an existing prefab to your schedule
+                </Label>
+            </Frame>
+
+            <!-- Example of a prefab-->
+            <StackLayout Margin="20">
+                <Label FontSize="18" TextColor="{x:StaticResource TextColor}">Gå till skolan</Label>
+                <FlexLayout Direction="Row" 
+                        JustifyContent="SpaceBetween" 
+                        AlignItems="Center" 
+                        HorizontalOptions="FillAndExpand" 
+                        BackgroundColor="MediumPurple"
+                        Padding="10"
+                        >
+
+
+                    <Label FontSize="16" TextColor="White">60 min</Label>
+                    <TimePicker TextColor="White" ></TimePicker>
+                    <Button x:Name="PrefabButton"  Text="Add Prefab" Clicked="PrefabButton_Clicked" BackgroundColor="{x:StaticResource LightPink}">
+                    </Button>
+                </FlexLayout>
+            </StackLayout>
+            
+            
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -24,7 +24,9 @@
                    Keyboard="Numeric" />
 
                 <TimePicker x:Name="taskStartTimePicker"/>
-                <Entry x:Name="ColorEntry" Placeholder="Skriv in en hexadecimal kod för din färg"/>
+
+                <Entry x:Name="ColorEntry" Placeholder="Color in hexadecimals (ex. #FFC2D2)"/>
+                
                 <Button x:Name="AddTaskButton" 
                     Clicked="AddTaskButton_Clicked" 
                     Text="Add the task" 
@@ -33,11 +35,6 @@
                     CornerRadius="10"
                     TextColor="{x:StaticResource TextColor}"
                     />
-
-                <!-- <Picker 
-                   SelectedItem="{Binding SelectedItem}"
-                   ItemsSource="{Binding Colors}"/>
-             -->
             </StackLayout>
             
         </StackLayout>

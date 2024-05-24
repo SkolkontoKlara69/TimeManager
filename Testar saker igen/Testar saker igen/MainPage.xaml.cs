@@ -10,15 +10,17 @@ namespace Testar_saker_igen
 {
     public partial class MainPage : ContentPage 
     {
+        PrefabsPage prefabsPage;
         public MainPage()
         {
             InitializeComponent();
+            prefabsPage = new PrefabsPage(this);
 
         }
 
         async void SettingsButton_Clicked(object sender, EventArgs eventArgs)
         {
-            await Navigation.PushAsync(new SettingsPage());
+            await Navigation.PushAsync(new SettingsPage(prefabsPage));
         }
 
 
@@ -30,7 +32,7 @@ namespace Testar_saker_igen
 
         async void PrefabButton_Clicked(object sender, EventArgs eventArgs)
         {
-            await Navigation.PushAsync(new PrefabsPage());
+            await Navigation.PushAsync(prefabsPage);
         }
 
         public void AddTaskToAbsoluteLayout(string taskNameString, double taskTimeLength, TimeSpan taskStartTime, Color color)
@@ -100,8 +102,6 @@ namespace Testar_saker_igen
                 absoluteLayout.Children.Add(taskFrame);
             }
 
-
-            absoluteLayout.Children.Add(taskFrame);
         }
     }
 }
