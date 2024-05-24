@@ -14,9 +14,8 @@
             </Frame>
 
             <!-- Example of a prefab -->
-            <!--
-            <StackLayout Margin="20">
-                <Label FontSize="18" TextColor="{x:StaticResource TextColor}">Gå till skolan</Label>
+           <!-- <StackLayout Margin="20">
+                <Label FontSize="18" TextColor="{x:StaticResource TextColor}">Example task</Label>
                 <Frame CornerRadius="10" Padding="0">
                     <FlexLayout Direction="Row" 
                                 JustifyContent="SpaceBetween" 
