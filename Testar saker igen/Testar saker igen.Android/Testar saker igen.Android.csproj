@@ -33,6 +33,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
+	  <AndroidSupportedAbis>armeabi-v7a;arm64-v8a;x86</AndroidSupportedAbis> <!--Manuellt tillagd för att stödja fler enheter-->
 	<EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk> <!--Manuellt tillagd för att förenkla testning och förhindra fel-->
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -44,6 +45,7 @@
     <WarningLevel>4</WarningLevel>
     <AndroidManagedSymbols>true</AndroidManagedSymbols>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+	  <AndroidSupportedAbis>armeabi-v7a;arm64-v8a;x86</AndroidSupportedAbis> <!--Manuellt tillagd för att stödja fler enheter-->
 	<EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk> <!--Manuellt tillagd för att förenkla testning och förhindra fel-->
   </PropertyGroup>
   <ItemGroup>
